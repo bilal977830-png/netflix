@@ -1,0 +1,923 @@
+
+/*======================
+   01. Basic css
+========================*/
+
+section {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Add this line to turn the ground black */
+    color: #ffffff;            /* Add this to ensure text inside stays white */
+}
+
+body {
+    line-height: 1.5;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background: #000000;
+    color: #ffffff;
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+}
+
+/* This targets the paragraph specifically */
+p {
+  color: #ffffff !important;   /* Forces the color to pure white */
+  opacity: 1 !important;       /* Removes any transparency/greyness */
+  font-weight: 500;            /* Makes it slightly bolder to stand out */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Adds a shadow so it's readable over the images */
+}
+ol,
+ul {
+    list-style: none;
+}
+h1, h2, h3 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 10; /* Ensures it stays above any dark background overlays */
+}
+a:hover {
+    text-decoration: none;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 0;
+}
+
+html {
+    font-size: 62.5%;
+    /*1 rem = 10px*/
+}
+
+.section_padd {
+    padding: 5rem 0;
+}
+
+.head_text {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+/*======================
+   02. header section css
+========================*/
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* pushes left and right */
+    align-items: center;
+    padding: 20px 50px;
+
+}
+
+
+header nav .logo img {
+    width: 15rem;
+}
+
+header nav .login_btn {
+    background: rgb(229, 9, 20);
+    height: 3.2rem;
+    padding: 0 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
+
+/*======================
+   03. home section css
+========================*/
+.home_wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home_wrapper h1 {
+    font-size: 5.5rem;
+    font-weight: 700;
+}
+
+.home_wrapper h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 0;
+}
+
+.form_wrap p {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.form_wrap input {
+    width: 40rem;
+    height: 6rem;
+    padding-left: 2rem;
+    background: transparent;
+    border: 0.1rem solid #a7a3a3;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    color: #ffffff;
+}
+
+.form_wrap input::placeholder {
+    color: #ffffff;
+}
+
+.form_wrap button {
+    height: 6rem;
+    padding: 0 2rem;
+    background: rgb(229, 9, 20);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    border: transparent;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.form_wrap button i {
+    margin-left: 1.5rem;
+}
+/* HOME GET STARTED BUTTON */
+
+.get-started-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.get-started-btn:hover {
+    background-color: #c11119;
+}
+
+/* Arrow Style */
+.get-started-btn .arrow {
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 1;
+    position: relative;
+    top: -4px;
+    transition: transform 0.3s ease;
+}
+
+
+
+/* ============================= */
+/*      TRENDING SECTION CSS     */
+/* ============================= */
+
+.trending_wrapper {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+}
+
+.trending_wrapper .trending_item {
+    flex: 0 0 50px !important; /* Forces enough width for number + poster */
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 30px;
+    transition: transform 0.3s ease ;
+}
+.trending_wrapper .trending_item img {
+    width: 170px !important;
+    height: 250px !important;
+    z-index: 1 !important;    /* Sits behind the number */
+    margin-left: 0 !important; /* Removes the gap so the number can overlap */
+    position: relative;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.trending_wrapper .trending_item:hover img {
+    transform: scale(1.1);
+}
+
+.trending_wrapper .trending_item span {
+    position: absolute !important;
+    left: -5px !important;    /* Moves number toward the right to overlap the card */
+    bottom: 10px !important;  /* Keeps it hanging slightly off the bottom */
+    z-index: 2 !important;     /* Forces it to sit ON TOP of the image */
+    
+    font-size: 10rem !important; 
+    font-weight: 900 !important;
+    color: black !important;
+    /* This outline makes it look sharp against the poster */
+    -webkit-text-stroke: 2px #ffffff !important; 
+    line-height: 1;
+}
+
+.trending_wrapper .trending_item:hover span {
+    transform: scale(1.10);
+}
+
+.trending_wrapper .trending_active .owl-next,
+.trending_wrapper .trending_active .owl-prev {
+    width: 2.5rem;
+    height: 10rem;
+    background: #424242;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.4s all ease-in-out;
+}
+
+.trending_wrapper .trending_active .owl-next:hover,
+.trending_wrapper .trending_active .owl-prev:hover {
+    background: #5f5353;
+}
+
+.trending_wrapper .trending_active .owl-next {
+    right: -4rem;
+}
+
+.trending_wrapper .trending_active .owl-prev {
+    left: -4rem;
+}
+/* ===== NETFLIX MOVING SLIDER ===== */
+
+/* Change around line 235 */
+.trending_wrapper {
+    position: relative !important;
+    overflow: hidden !important; /* This is the key to removing stray bars */
+    width: 100%;
+}
+
+.trending_slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 20px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Add this right below it for Chrome/Safari */
+.trending_slider::-webkit-scrollbar {
+    display: none !important;
+}
+
+
+
+.trending_item {
+    min-width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.trending_item img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.trending_item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.scroll_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(71, 71, 71, 0.6);   /* transparent black */
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 20px;
+    height: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+/* Right side */
+.scroll_btn.right {
+    right: 0;
+}
+
+/* Left side */
+.scroll_btn.left {
+    left: 0;
+}
+
+/* Hover effect */
+.scroll_btn:hover {
+    background: rgba(7, 7, 7, 0.85);
+}
+/*======================
+   05. card section css
+========================*/
+
+/* Add this to force the columns to be smaller */
+.card_wrapper .col-lg-6 {
+    flex: 1 0 0% !important; /* Overrides the 50% width of col-lg-6 */
+    width: auto !important;
+    max-width: 100% !important;
+}
+.card_wrapper .card_item {
+
+    position: relative;
+    flex: 1 1 0 !important; /* This forces 4 cards to share the space */
+    min-width: 280px !important; 
+    min-height: 25rem !important; 
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(149deg, #192247 0%, #210e17 96.86%) !important;
+    border: none;
+    margin-bottom: 0 !important; /* Removes the bottom gap */
+}
+
+
+.card_wrapper .card_item h2 {
+    font-size:2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.card_wrapper .card_item p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+}
+
+.card_wrapper .card_item img {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 5.5rem !important;
+    height: auto;
+}
+
+
+/*==========================
+   06. frequently section css
+============================*/
+.frequently_wrapper .card {
+    background: #2D2D2D;
+    border: transparent;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+    .accordion-button {
+    display: flex !important;
+    justify-content: space-between !important; /* Pushes text left and plus right */
+    align-items: center !important;
+    width: 100% !important;
+    padding: 1.5rem 2rem !important;
+    background-color: #2d2d2d !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Add this to remove the default Bootstrap arrow */
+.accordion-button::after {
+    display: none !important;
+}
+.frequently_wrapper .card .card-header:hover {
+    background: #4f4f4f;
+
+}
+.frequently_wrapper .card .card-body {
+    background: #2D2D2D;
+    color: #ffffff;
+    padding: 2rem;
+}
+.frequently_wrapper .card .card-header button {
+    padding: 0;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 500;
+    background: transparent;
+    border: transparent;
+    width: 100%;
+}
+
+.frequently_wrapper .card .card-header button:hover {
+    text-decoration: none;
+}
+
+    .accordion-button span {
+    font-size: 3rem !important;  /* Makes the plus large */
+    font-weight: 300 !important; /* Makes the plus thin */
+    line-height: 1 !important;
+    position: static !important; /* Forces it to follow Flexbox rules */
+    margin-left: auto !important; /* Double-ensures it stays on the right */
+}
+
+
+/*==========================
+   07. footer section css
+============================*/
+
+/* This specifically centers the text and gives it room */
+footer .form_wrap p {
+    font-size: 1.5rem;      /* Adjust size to match image */
+    text-align: center;
+    width: 100%;            /* Ensures text can center across the whole width */
+    margin-bottom: 10px;    /* Space between text and email box */
+}
+footer .form_wrap input {
+    width: 600px;
+}
+
+
+footer {
+    padding: 6rem 0 15rem 0;
+}
+
+footer .link h3 {
+    color: #bab6b6 !important; /* This is the specific grey color */
+    text-decoration: underline; color: #bab6b6;
+    margin-top: 10rem;
+    
+}
+footer .footer_item ul li a {
+    color: #bab6b6;
+    text-decoration: underline;
+    display: block;
+}
+
+.mt_60 {
+    margin-top: 6rem;
+}
+
+.mt_40 {
+    margin-top: 4rem;
+}
+
+footer .footer_item ul li a {
+    font-size: 1.4rem !important;
+}
+
+footer select {
+    height:3.5rem;
+    border: 0.1rem solid #bab7b7;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    background: rgb(251, 251, 251);
+    color: #080808;
+}
+
+footer p {
+    font-size: 1.5rem;
+}
+
+footer span {
+    font-size: 1.3rem;
+    display: block;
+    color: #c1b8b8;
+}
+
+footer span a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.mt_30 {
+    margin-top: 3rem;
+}
+.footer-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+
+    display: inline-flex;      /* IMPORTANT */
+    align-items: center;       /* CENTER vertically */
+    justify-content: center;
+    gap: 8px;
+
+    cursor: pointer;
+}
+.footer-btn:hover {
+    background-color: #c11119;
+}
+
+/* Arrow style */
+.footer-btn .arrow {
+    font-size: 50px;
+    line-height: 1;     /* IMPORTANT */
+    position: relative;
+    top: -4px;          /* Move slightly up */
+    font-weight: 100;
+    color: white;
+}
+
+/* Ensure the body is definitely black */
+body {
+    background-color: #000000 !important;
+}
+/* Styling the FAQ Boxes */
+.card {
+    background-color: #2d2d2d !important; /* Dark grey like Netflix */
+    border: none;
+    margin-bottom: 8px; /* Gap between questions */
+}
+
+.card-header {
+    background-color: #2d2d2d !important;
+    padding: 20px !important;
+    border-bottom: 1px solid #000; /* Subtle line between question and answer */
+}
+
+.card-header button {
+    color: white !important;
+    text-decoration: none !important;
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body {
+    background-color: #2d2d2d !important;
+    color: white !important;
+    font-size: 1.2rem;
+    padding: 20px !important;
+}
+
+/* Ensure the + icons are white */
+.fa-plus {
+    color: white;
+}
+.frequently_wrapper {
+    background-color: #000 !important;
+    padding: 60px 0;
+}
+
+
+.frequently_wrapper .accordion-item {
+    background-color: #2d2d2d;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.frequently_wrapper .accordion-button {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.frequently_wrapper .accordion-button::after {
+    filter: invert(1);
+}
+.accordion-item {
+    background-color: #2d2d2d !important;
+    border: none !important;
+    margin-bottom: 12px;
+}
+
+.accordion-button {
+    background-color: #2d2d2d !important;
+    color: #fff !important;
+    font-size: 24px;
+    padding: 28px;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+.accordion-body {
+    color: #e6e6e6 !important;
+    font-size: 20px;
+    padding: 25px 28px;
+}
+/* Netflix Thin Curve Line */
+
+.curve-line {
+    position: relative;
+    height: 85px;
+    background: black;
+    overflow: hidden;
+}
+
+/* Red curved line */
+.netflix-curve {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.netflix-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Red top line */
+.netflix-curve::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e50914;
+}
+
+/* Blue glow in center */
+.netflix-curve::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 40px;
+    background: radial-gradient(circle, #0046ff 0%, transparent 70%);
+    filter: blur(30px);
+    opacity: 0.8;
+}
+/* Transparent black overlay */
+.home_wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* adjust darkness here */
+    z-index: 1;
+}
+
+/* Make content appear above overlay */
+.home_wrapper .container {
+    position: relative;
+    z-index: 2;
+}
+/* Trending Now Heading Size */
+
+.trending_wrapper h2 {
+    font-size: 2rem;   /* decrease size */
+    font-weight: 700;
+}
+.card_wrapper h2 {
+    font-size: 2rem;   /* decrease size */
+    font-weight: 700;
+}
+.frequently_wrapper h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+/* Language Dropdown */
+.language-select {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Dropdown options background */
+.language-select option {
+    color: black;
+}
+
+/* Sign In Button */
+.signin-btn {
+    background-color: #e50914;
+    color: white;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Hover effect */
+.signin-btn:hover {
+    background-color: #c11119;
+}
+body {
+    overflow-x: hidden !important;
+}
+/* ===== Language Box Netflix Style ===== */
+
+
+.language-box {
+    position: relative;
+    display: inline-block;
+}
+
+/* Japanese letter */
+.lang-icon:first-child {
+    position: absolute;
+    left: 25px;     /* move left/right */
+    top: 15px;      /* move up/down */
+    font-size: 11px;
+    color: white;
+}
+
+
+.lang-icon {
+    position: absolute;
+    left: 32px;
+    top: 55%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: white;
+    pointer-events: none;
+    font-weight: 500;
+}
+/* Dropdown Arrow */
+.language-box::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: white;
+    pointer-events: none;
+}
+
+.language-select {
+    width: 120px;
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    padding: 6px 10px 6px 45px;
+    border-radius: 4px;
+    appearance: none;
+    font-size: 14px;
+}
+
+
+/* ============================= */
+/*        FOOTER SECTION         */
+/* ============================= */
+
+.footer {
+    background: #0e0e0e;
+    padding: 50px 0;
+    color: #777;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Language Box */
+.footer-language {
+    position: relative;
+    display: inline-block;
+}
+
+/* Select Box */
+.footer-select {
+    background: transparent;
+    color:#fcf8f8;
+    border: 1px solid #555;
+    padding: 7px 35px 7px 40px;
+    border-radius: 4px;
+    font-size: 14px;
+    appearance: none;
+}
+
+
+/* Japanese character */
+.lang-icon-jp {
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* A icon */
+.lang-icon-a {
+    position: absolute;
+    left: 28px;
+    top: 12px;
+    font-size: 12px;
+    color: #fff;
+}
+/* This styles the text inside the dropdown list */
+.footer-select option, 
+.language-box select option {
+    color: #000000 !important;      /* Changes English/Hindi text to black */
+    background-color: #ffffff !important; /* Optional: sets background to white for contrast */
+}
+
+
+/* Add custom down arrow */
+.footer-language::after {
+    content: "▼";        /* Down arrow */
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: white;
+    pointer-events: none;
+}
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (max-width: 1399px) {
+    html {
+        font-size: 55.5%;
+    }
+}
+
+@media (min-width: 1400px) {}
+
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 120rem;
+    }
+
+}
+
+@media (max-width: 1199px) {
+
+    html {
+        font-size: 48%;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .trending_wrapper .trending_active .owl-next {
+        right: 0;
+    }
+
+    .trending_wrapper .trending_active .owl-prev {
+        left: 0;
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    footer {
+        padding: 4rem 0 6rem 0;
+    }
+
+}
+
+/*Medium devices (tablets, 767px and down)*/
+@media (max-width: 767px) {}
+
+/*Small devices (landscape phones, 575px and down)*/
+@media (max-width: 575px) {
+    .home_wrapper h1 {
+        font-size: 3.5rem;
+    }
+
+    .head_text {
+        font-size: 3rem;
+    }
+}
